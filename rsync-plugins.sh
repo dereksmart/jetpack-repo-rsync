@@ -40,6 +40,16 @@ JETPACK_REPO_PATH=""
 # Point to the source /plugins directory
 DEST_PLUGINS_PATH=""
 
+if [[ -z $JETPACK_REPO_PATH ]]; then
+  echo "No source found. Please update JETPACK_REPO_PATH."
+  exit 1
+fi
+
+if [[ -z $DEST_PLUGINS_PATH ]]; then
+  echo "No destination found. Please update DEST_PLUGINS_PATH."
+  exit 1
+fi
+
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SOURCE="$JETPACK_REPO_PATH/projects/plugins/$PLUGIN"
 FILTER_FILES="$SCRIPT_DIR/filter-files.txt"
